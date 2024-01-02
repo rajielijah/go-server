@@ -2,7 +2,6 @@ package controller
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/rajielijah/go-server/views"
@@ -16,10 +15,9 @@ func ping() http.HandlerFunc {
 				Code: http.StatusOK,
 				Body: "pong",
 			}
+			w.WriteHeader(http.StatusOK)
 			json.NewEncoder(w).Encode(data)
 
-			fmt.Println("Request Recieed")
-			w.Write([]byte("We are here"))
 		}
 	}
 }
