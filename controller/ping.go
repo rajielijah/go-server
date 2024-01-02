@@ -4,13 +4,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+
+	"github.com/rajielijah/go-server/views"
 )
 
 func ping() http.HandlerFunc {
 
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
-			data := view.Response{
+			data := views.Response{
 				Code: http.StatusOK,
 				Body: "pong",
 			}
