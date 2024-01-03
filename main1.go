@@ -8,5 +8,7 @@ import (
 
 func main() {
 	mux := controller.Register()
+	db := model.connect()
+	defer db.Close()
 	http.ListenAndServe("localhost:3000", mux)
 }
