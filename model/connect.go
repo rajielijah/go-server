@@ -6,11 +6,14 @@ import (
 	"log"
 )
 
-func connect() *sql.DB {
-	db, err := sql.Open("mysql", "root:password@(tcp:localhost:3306)")
+var con *sql.DB
+
+func Connect() *sql.DB {
+	db, err := sql.Open("mysql", "root:password@tcp(localhost:3306)/test")
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("connected to the Database")
+	con = db
 	return db
 }
